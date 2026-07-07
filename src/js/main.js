@@ -7,6 +7,7 @@ import { calculateLosses } from './calculator.js';
 import { renderLossSection, renderSolutionSection } from './report.js';
 import { initSandbox } from './sandbox.js';
 import { submitCalculation, submitLead, downloadPDFReport } from './api.js';
+import { generateClientPDF } from './pdf_client.js';
 import {
   validateInputs,
   formatBudgetDisplay,
@@ -130,13 +131,22 @@ function setupNavigation() {
 
       // Download PDF
       showToast('Generating your report...', 'info');
-      const pdfBlob = await downloadPDFReport({
+      let pdfBlob = await downloadPDFReport({
         budget: leadData.budget,
         duration_months: leadData.duration_months,
         num_laborers: leadData.num_laborers,
         name: leadData.name,
         email: leadData.email,
       });
+
+      if (!pdfBlob) {
+        // Fallback to client-side PDF generation
+        try {
+          pdfBlob = generateClientPDF(calculationResult, leadData);
+        } catch (err) {
+          console.error('Client-side PDF generation failed:', err);
+        }
+      }
 
       if (pdfBlob) {
         // Create download link
@@ -148,7 +158,7 @@ function setupNavigation() {
         URL.revokeObjectURL(url);
         showToast('Report downloaded successfully!', 'success');
       } else {
-        showToast('PDF service unavailable. Proceeding to sandbox.', 'info');
+        showToast('PDF generation failed. Proceeding to sandbox.', 'warning');
       }
 
       // Navigate to sandbox
