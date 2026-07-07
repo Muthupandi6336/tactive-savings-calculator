@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tactive Savings Calculator — See How Much Your Construction Project Is Losing</title>
+  <meta name="description" content="Input your project details and instantly see your financial losses. Discover how Tactive's construction management platform recovers your money with Material Tracking, Equipment Alerts, and more." />
+  <meta name="keywords" content="construction management, project savings, Tactive, material tracking, equipment alerts, construction ROI" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/src/css/variables.css" />
+  <link rel="stylesheet" href="/src/css/animations.css" />
+  <link rel="stylesheet" href="/src/css/components.css" />
+  <link rel="stylesheet" href="/src/css/layout.css" />
+</head>
+<body>
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- NAVIGATION -->
+  <!-- ═══════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-brand">
+      <svg class="tactive-logo" width="160" height="42" viewBox="0 0 120 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="a-left-grad" x1="0" y1="1" x2="0.5" y2="0">
+            <stop offset="0%" stop-color="#7dc143" />
+            <stop offset="100%" stop-color="#0066b2" />
+          </linearGradient>
+          <linearGradient id="a-swoosh-grad" x1="0" y1="0.5" x2="1" y2="0.5">
+            <stop offset="0%" stop-color="#7dc143" />
+            <stop offset="100%" stop-color="#0066b2" />
+          </linearGradient>
+        </defs>
+        
+        <!-- T -->
+        <path d="M 4 10 h 16 v 3.5 h -6 v 16.5 h -4 v -16.5 h -6 Z" fill="#0066b2" />
+        
+        <!-- A Left Leg (Curved Gradient) -->
+        <path d="M 24 30 Q 28 20 31.5 10 H 34.5 Q 31 20 27.5 30 Z" fill="url(#a-left-grad)" />
+        
+        <!-- A Right Leg (Curved Blue) -->
+        <path d="M 31.5 10 Q 35 20 39 30 H 35.5 Q 32 20 29.5 10 Z" fill="#0066b2" />
+        
+        <!-- A Swoosh Crossbar -->
+        <path d="M 22.5 24 Q 31.5 19 39.5 23.5 Q 31.5 21.5 24.5 25 Z" fill="url(#a-swoosh-grad)" />
+        
+        <!-- C -->
+        <path d="M 56 12 A 8.5 8.5 0 0 0 47.5 20 A 8.5 8.5 0 0 0 56 28 v -3.5 A 5 5 0 0 1 51 20 A 5 5 0 0 1 56 15.5 Z" fill="#0066b2" />
+        
+        <!-- T -->
+        <path d="M 58 10 h 16 v 3.5 h -6 v 16.5 h -4 v -16.5 h -6 Z" fill="#0066b2" />
+        
+        <!-- I -->
+        <path d="M 76 14 h 4 v 16 h -4 Z" fill="#0066b2" />
+        
+        <!-- I Dot (Red accent) -->
+        <path d="M 77 12 C 77 10, 78 8, 81 7.5 C 80.5 9, 80 11.5, 78.5 12 Z" fill="#e31b23" />
+        
+        <!-- V -->
+        <path d="M 82 10 L 87.5 30 h 2 L 95 10 h -4 L 88.5 25.5 L 85.5 10 Z" fill="#0066b2" />
+        
+        <!-- E -->
+        <path d="M 97 10 h 14 v 3.5 h -10 v 4.5 h 8 v 3.5 h -8 v 5 h 10 v 3.5 h -14 Z" fill="#0066b2" />
+        
+        <!-- Subtitle: PRACTISING VALUES -->
+        <text x="4" y="39" font-family="'Inter', 'Montserrat', sans-serif" font-size="7.5" font-weight="600" fill="#a0a5b5" textLength="107" lengthAdjust="spacing">PRACTISING VALUES</text>
+      </svg>
+    </div>
+    <div class="navbar-steps">
+      <div class="step-indicator active" data-step="0">
+        <span class="step-number">1</span>
+        <span class="step-label">Your Project</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-indicator" data-step="1">
+        <span class="step-number">2</span>
+        <span class="step-label">Your Losses</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-indicator" data-step="2">
+        <span class="step-number">3</span>
+        <span class="step-label">The Solution</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-indicator" data-step="3">
+        <span class="step-number">4</span>
+        <span class="step-label">Live Sandbox</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HERO + INPUT FORM (Step 0) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section section-hero active" id="section-hero" data-step="0">
+    <div class="hero-bg-effects">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="badge animate-fade-in">
+            <span class="badge-dot"></span>
+            Construction Intelligence Platform
+          </div>
+          <h1 class="hero-title animate-slide-up">
+            Your project is <span class="text-gradient">bleeding money.</span>
+            <br />Let's find out how much.
+          </h1>
+          <p class="hero-subtitle animate-slide-up delay-1">
+            Enter your project details below and instantly see the financial leaks
+            that most construction CEOs don't discover until it's too late.
+          </p>
+        </div>
+
+        <div class="hero-form animate-slide-up delay-2">
+          <form id="calculator-form" class="calculator-form">
+            <div class="form-header">
+              <h2>Project Details</h2>
+              <p>All data is encrypted and never shared</p>
+            </div>
+
+            <div class="form-group">
+              <label for="budget" class="form-label">
+                <span class="label-icon">💰</span>
+                Project Budget
+              </label>
+              <div class="input-wrapper">
+                <span class="input-prefix">₹</span>
+                <input
+                  type="number"
+                  id="budget"
+                  name="budget"
+                  placeholder="e.g. 50,00,00,000"
+                  min="1"
+                  step="1"
+                  required
+                />
+                <span class="input-suffix" id="budget-display">0 Crores</span>
+              </div>
+              <div class="input-helper">Enter the total project value in Rupees</div>
+            </div>
+
+            <div class="form-group">
+              <label for="duration" class="form-label">
+                <span class="label-icon">📅</span>
+                Project Duration
+              </label>
+              <div class="input-wrapper">
+                <input
+                  type="number"
+                  id="duration"
+                  name="duration"
+                  placeholder="e.g. 24"
+                  min="1"
+                  max="120"
+                  required
+                />
+                <span class="input-suffix">months</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="laborers" class="form-label">
+                <span class="label-icon">👷</span>
+                Number of Laborers
+              </label>
+              <div class="input-wrapper">
+                <input
+                  type="number"
+                  id="laborers"
+                  name="laborers"
+                  placeholder="e.g. 200"
+                  min="1"
+                  max="50000"
+                  required
+                />
+                <span class="input-suffix">workers</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" id="calculate-btn">
+              <span class="btn-text">Calculate My Losses</span>
+              <span class="btn-icon">→</span>
+              <div class="btn-shimmer"></div>
+            </button>
+
+            <p class="form-disclaimer">
+              🔒 Your data stays private. No sign-up required.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- RESULTS — LOSS BREAKDOWN (Step 1) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section section-results" id="section-results" data-step="1">
+    <div class="container">
+      <div class="results-header">
+        <div class="alert-badge animate-fade-in">
+          <span class="alert-pulse"></span>
+          ⚠️ Financial Alert
+        </div>
+        <h2 class="section-title animate-slide-up">
+          Your project is losing an estimated
+        </h2>
+        <div class="total-loss-display animate-scale-in">
+          <span class="currency">₹</span>
+          <span class="amount" id="total-loss-amount">0</span>
+          <span class="unit" id="total-loss-unit">Crores</span>
+        </div>
+        <p class="results-subtitle">Here's where the money is going:</p>
+      </div>
+
+      <div class="loss-cards" id="loss-cards">
+        <!-- Dynamically generated loss breakdown cards -->
+      </div>
+
+      <div class="charts-container">
+        <div class="chart-card">
+          <h3 class="chart-title">Loss Breakdown by Category</h3>
+          <div class="chart-wrapper">
+            <canvas id="loss-bar-chart"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <h3 class="chart-title">Where Your Budget Actually Goes</h3>
+          <div class="chart-wrapper">
+            <canvas id="loss-doughnut-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-cta">
+        <button class="btn btn-primary btn-lg" id="see-solution-btn">
+          <span class="btn-text">See How Tactive Fixes This</span>
+          <span class="btn-icon">→</span>
+          <div class="btn-shimmer"></div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SOLUTION — RECOVERY REPORT (Step 2) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section section-solution" id="section-solution" data-step="2">
+    <div class="container">
+      <div class="solution-header">
+        <div class="badge badge-success animate-fade-in">
+          <span class="badge-dot badge-dot-green"></span>
+          Recovery Analysis
+        </div>
+        <h2 class="section-title animate-slide-up">
+          Tactive can recover
+        </h2>
+        <div class="recovery-display animate-scale-in">
+          <span class="currency recovery-currency">₹</span>
+          <span class="amount recovery-amount" id="total-recovery-amount">0</span>
+          <span class="unit" id="total-recovery-unit">Crores</span>
+        </div>
+        <p class="results-subtitle">of your lost funds using these modules:</p>
+      </div>
+
+      <div class="module-cards" id="module-cards">
+        <!-- Dynamically generated recovery module cards -->
+      </div>
+
+      <div class="charts-container">
+        <div class="chart-card chart-card-wide">
+          <h3 class="chart-title">Before Tactive vs. After Tactive</h3>
+          <div class="chart-wrapper chart-wrapper-wide">
+            <canvas id="comparison-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROI Summary -->
+      <div class="roi-summary" id="roi-summary">
+        <div class="roi-card">
+          <div class="roi-icon">📈</div>
+          <div class="roi-value" id="roi-percentage">0%</div>
+          <div class="roi-label">Return on Investment</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-icon">⏱️</div>
+          <div class="roi-value" id="payback-months">0</div>
+          <div class="roi-label">Months to Payback</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-icon">💰</div>
+          <div class="roi-value" id="net-savings">₹0</div>
+          <div class="roi-label">Net Annual Savings</div>
+        </div>
+      </div>
+
+      <!-- Lead Capture Form -->
+      <div class="lead-capture" id="lead-capture">
+        <div class="lead-capture-inner">
+          <h3>Get Your Personalized Report</h3>
+          <p>Enter your details to receive a detailed PDF report and explore the live sandbox.</p>
+          <form id="lead-form" class="lead-form">
+            <div class="lead-form-row">
+              <input type="text" id="lead-name" placeholder="Your Name" required />
+              <input type="email" id="lead-email" placeholder="Email Address" required />
+            </div>
+            <div class="lead-form-row">
+              <input type="tel" id="lead-phone" placeholder="Phone Number" />
+              <input type="text" id="lead-company" placeholder="Company Name" />
+            </div>
+            <div class="lead-form-actions">
+              <button type="submit" class="btn btn-primary" id="download-report-btn">
+                <span class="btn-text">📄 Download PDF Report</span>
+                <div class="btn-shimmer"></div>
+              </button>
+              <button type="button" class="btn btn-secondary" id="skip-to-sandbox-btn">
+                <span class="btn-text">🎮 Try the Sandbox</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SANDBOX — INTERACTIVE DASHBOARD (Step 3) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="section section-sandbox" id="section-sandbox" data-step="3">
+    <div class="container">
+      <div class="sandbox-header">
+        <div class="badge badge-sandbox animate-fade-in">
+          <span class="badge-dot badge-dot-blue"></span>
+          Interactive Sandbox
+        </div>
+        <h2 class="section-title animate-slide-up">
+          Experience Tactive in Action
+        </h2>
+        <p class="results-subtitle" id="sandbox-subtitle">
+          This is a live simulation of how Tactive monitors your project
+        </p>
+      </div>
+
+      <!-- Sandbox Dashboard Tabs -->
+      <div class="sandbox-tabs" id="sandbox-tabs">
+        <button class="sandbox-tab active" data-module="materials">
+          <span class="tab-icon">📦</span>
+          Material Tracking
+        </button>
+        <button class="sandbox-tab" data-module="equipment">
+          <span class="tab-icon">🏗️</span>
+          Equipment Monitor
+        </button>
+        <button class="sandbox-tab" data-module="labor">
+          <span class="tab-icon">👷</span>
+          Labor Productivity
+        </button>
+        <button class="sandbox-tab" data-module="finance">
+          <span class="tab-icon">💰</span>
+          Financial Overview
+        </button>
+      </div>
+
+      <!-- Sandbox Dashboard Panels -->
+      <div class="sandbox-dashboard" id="sandbox-dashboard">
+
+        <!-- Material Tracking Panel -->
+        <div class="sandbox-panel active" id="panel-materials" data-module="materials">
+          <div class="panel-grid">
+            <div class="panel-kpi-row">
+              <div class="kpi-card">
+                <div class="kpi-label">Materials Tracked</div>
+                <div class="kpi-value" id="kpi-materials-tracked">0</div>
+                <div class="kpi-change positive">↑ Real-time</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Wastage Prevented</div>
+                <div class="kpi-value" id="kpi-wastage-prevented">₹0</div>
+                <div class="kpi-change positive">↓ 70% reduced</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Stock Alerts</div>
+                <div class="kpi-value" id="kpi-stock-alerts">0</div>
+                <div class="kpi-change warning">Active</div>
+              </div>
+            </div>
+            <div class="panel-chart-area">
+              <div class="chart-card">
+                <h4 class="chart-subtitle">Material Inventory Levels</h4>
+                <div class="chart-wrapper">
+                  <canvas id="material-inventory-chart"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="panel-alerts">
+              <h4 class="alerts-title">⚠️ Live Alerts</h4>
+              <div class="alert-list" id="material-alerts">
+                <!-- Dynamic alerts -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Equipment Monitor Panel -->
+        <div class="sandbox-panel" id="panel-equipment" data-module="equipment">
+          <div class="panel-grid">
+            <div class="panel-kpi-row">
+              <div class="kpi-card">
+                <div class="kpi-label">Active Equipment</div>
+                <div class="kpi-value" id="kpi-active-equipment">0</div>
+                <div class="kpi-change positive">Running</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Idle Equipment</div>
+                <div class="kpi-value" id="kpi-idle-equipment">0</div>
+                <div class="kpi-change negative">Needs Action</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Cost Saved</div>
+                <div class="kpi-value" id="kpi-equipment-saved">₹0</div>
+                <div class="kpi-change positive">↑ 80% optimized</div>
+              </div>
+            </div>
+            <div class="panel-equipment-grid" id="equipment-grid">
+              <!-- Dynamic equipment cards -->
+            </div>
+            <div class="panel-chart-area">
+              <div class="chart-card">
+                <h4 class="chart-subtitle">Equipment Utilization</h4>
+                <div class="chart-wrapper">
+                  <canvas id="equipment-utilization-chart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Labor Productivity Panel -->
+        <div class="sandbox-panel" id="panel-labor" data-module="labor">
+          <div class="panel-grid">
+            <div class="panel-kpi-row">
+              <div class="kpi-card">
+                <div class="kpi-label">Total Laborers</div>
+                <div class="kpi-value" id="kpi-total-laborers">0</div>
+                <div class="kpi-change neutral">Tracked</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Avg. Efficiency</div>
+                <div class="kpi-value" id="kpi-avg-efficiency">0%</div>
+                <div class="kpi-change positive">↑ Improving</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Savings from Productivity</div>
+                <div class="kpi-value" id="kpi-labor-savings">₹0</div>
+                <div class="kpi-change positive">↑ 60% recovered</div>
+              </div>
+            </div>
+            <div class="panel-chart-area">
+              <div class="chart-card">
+                <h4 class="chart-subtitle">Zone-wise Productivity Heatmap</h4>
+                <div class="heatmap-container" id="labor-heatmap">
+                  <!-- Dynamic heatmap grid -->
+                </div>
+              </div>
+            </div>
+            <div class="panel-chart-area">
+              <div class="chart-card">
+                <h4 class="chart-subtitle">Attendance & Productivity Trend</h4>
+                <div class="chart-wrapper">
+                  <canvas id="labor-trend-chart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Financial Overview Panel -->
+        <div class="sandbox-panel" id="panel-finance" data-module="finance">
+          <div class="panel-grid">
+            <div class="panel-kpi-row">
+              <div class="kpi-card kpi-card-highlight">
+                <div class="kpi-label">Total Savings</div>
+                <div class="kpi-value kpi-value-large" id="kpi-total-savings">₹0</div>
+                <div class="kpi-change positive">With Tactive</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">Monthly Savings</div>
+                <div class="kpi-value" id="kpi-monthly-savings">₹0</div>
+                <div class="kpi-change positive">Per Month</div>
+              </div>
+              <div class="kpi-card">
+                <div class="kpi-label">ROI</div>
+                <div class="kpi-value" id="kpi-roi">0%</div>
+                <div class="kpi-change positive">Return</div>
+              </div>
+            </div>
+            <div class="panel-chart-area">
+              <div class="chart-card chart-card-wide">
+                <h4 class="chart-subtitle">Monthly Savings Projection</h4>
+                <div class="chart-wrapper chart-wrapper-wide">
+                  <canvas id="savings-timeline-chart"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="panel-chart-area">
+              <div class="chart-card">
+                <h4 class="chart-subtitle">Savings by Module</h4>
+                <div class="chart-wrapper">
+                  <canvas id="savings-by-module-chart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="final-cta">
+        <div class="final-cta-inner">
+          <h3>Ready to stop the bleed?</h3>
+          <p id="final-cta-text">Tactive can save your project an estimated ₹0 Crores.</p>
+          <div class="final-cta-buttons">
+            <a href="#" class="btn btn-primary btn-lg" id="schedule-demo-btn">
+              <span class="btn-text">Schedule a Demo</span>
+              <div class="btn-shimmer"></div>
+            </a>
+            <button class="btn btn-ghost" id="restart-btn">
+              <span class="btn-text">↻ Run Another Calculation</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- LOADING OVERLAY -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="loader">
+      <div class="loader-ring"></div>
+      <div class="loader-text">Analyzing your project...</div>
+    </div>
+  </div>
+
+  <!-- Main Script -->
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
