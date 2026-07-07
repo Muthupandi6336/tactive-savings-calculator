@@ -2,6 +2,8 @@
 
 A modern, interactive financial analysis and simulation dashboard designed for construction CEOs to estimate project financial leaks ("bleed") and visualize how Tactive's modules recover lost funds.
 
+Inspired by the official [Tactive Construction Software](https://tactive.in/) platform.
+
 Live Site: **[https://Muthupandi6336.github.io/tactive-savings-calculator/](https://Muthupandi6336.github.io/tactive-savings-calculator/)**
 
 ---
@@ -65,3 +67,11 @@ Deploying updates to your live site takes just one command:
 npm run deploy
 ```
 *(This automatically runs Vite build and pushes the static assets from the `dist/` directory directly to your `gh-pages` branch).*
+
+---
+
+## ⚖️ Portfolio Disclaimer
+
+This project is an **independent portfolio case study** created for educational and interview demonstration purposes. It is not an official tool released by, affiliated with, or endorsed by Tactive Technologies. 
+
+All Tactive product module concepts (Material Tracking, Equipment Alerts, etc.) and names mentioned in this project are properties of their respective trademark owners, showcased here purely to demonstrate technical fullstack capabilities.
