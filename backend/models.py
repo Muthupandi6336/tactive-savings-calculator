@@ -1,5 +1,5 @@
 """
-Pydantic models for the Tactive Savings Calculator.
+Pydantic models for the Tactix Savings Calculator.
 
 Defines request/response schemas for calculations, reports, and lead management.
 """
@@ -23,7 +23,7 @@ class ProjectInput(BaseModel):
 
 
 class LossBreakdown(BaseModel):
-    """Breakdown of estimated losses without Tactive."""
+    """Breakdown of estimated losses without Tactix."""
 
     material_waste: float = Field(..., description="Loss due to material wastage (INR)")
     idle_machinery: float = Field(..., description="Loss due to idle machinery (INR)")
@@ -34,7 +34,7 @@ class LossBreakdown(BaseModel):
 
 
 class RecoveryReport(BaseModel):
-    """Breakdown of recoverable savings with Tactive modules."""
+    """Breakdown of recoverable savings with Tactix modules."""
 
     material_recovery: float = Field(..., description="Recovery via Material Tracking module (INR)")
     machinery_recovery: float = Field(..., description="Recovery via Equipment Alerts module (INR)")
@@ -51,7 +51,7 @@ class CalculationResult(BaseModel):
     input_data: ProjectInput
     loss_breakdown: LossBreakdown
     recovery_report: RecoveryReport
-    net_savings: float = Field(..., description="Net savings after Tactive implementation (INR)")
+    net_savings: float = Field(..., description="Net savings after Tactix implementation (INR)")
     payback_months: float = Field(..., description="Estimated payback period in months")
 
 

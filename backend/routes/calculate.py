@@ -16,10 +16,10 @@ router = APIRouter(prefix="/api", tags=["Calculate"])
 @router.post("/calculate", response_model=CalculationResult)
 async def calculate(project: ProjectInput) -> CalculationResult:
     """
-    Run the Tactive savings calculation.
+    Run the Tactix savings calculation.
 
     Accepts project budget, duration, and laborer count; returns a detailed
-    breakdown of estimated losses, Tactive recoveries, net savings, and
+    breakdown of estimated losses, Tactix recoveries, net savings, and
     the projected payback period.
     """
     try:

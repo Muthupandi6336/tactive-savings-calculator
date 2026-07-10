@@ -1,5 +1,5 @@
 /**
- * Tactive Savings Calculator — Main Application Controller
+ * Tactix Savings Calculator — Main Application Controller
  * Orchestrates the multi-step flow: Input → Results → Solution → Sandbox
  */
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupForm();
   setupNavigation();
   setupBudgetPreview();
-  console.log('🚀 Tactive Savings Calculator initialized');
+  console.log('🚀 Tactix Savings Calculator initialized');
 });
 
 /**
@@ -153,7 +153,7 @@ function setupNavigation() {
         const url = URL.createObjectURL(pdfBlob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'Tactive-Savings-Report.pdf';
+        a.download = 'Tactix-Savings-Report.pdf';
         a.click();
         URL.revokeObjectURL(url);
         showToast('Report downloaded successfully!', 'success');
@@ -186,7 +186,7 @@ function setupNavigation() {
   if (demoBtn) {
     demoBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      showToast('Demo scheduling coming soon! Contact us at hello@tactive.in', 'info');
+      showToast('Demo scheduling coming soon! Contact us at hello@tactix.in', 'info');
     });
   }
 }

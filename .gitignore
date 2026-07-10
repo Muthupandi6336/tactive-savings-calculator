@@ -8,7 +8,7 @@ backend/__pycache__/
 backend/*.pyc
 
 # Local Database & Secrets
-backend/tactive.db
+backend/tactix.db
 backend/.env
 .env
 .env.local

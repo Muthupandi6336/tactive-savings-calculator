@@ -1,5 +1,5 @@
 """
-Async SQLite database layer for the Tactive Savings Calculator.
+Async SQLite database layer for the Tactix Savings Calculator.
 
 Uses the `databases` library with aiosqlite for non-blocking DB access.
 Tables:
@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./tactive.db")
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./tactix.db")
 database = databases.Database(DATABASE_URL)
 
 

@@ -1,5 +1,5 @@
 """
-Email service for sending Tactive savings reports.
+Email service for sending Tactix savings reports.
 
 Supports two modes controlled by the EMAIL_MODE env var:
   - "mock"  → MockEmailService (logs to console, no real emails)
@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-logger = logging.getLogger("tactive.email")
+logger = logging.getLogger("tactix.email")
 
 
 class BaseEmailService(ABC):
@@ -81,18 +81,18 @@ class RealEmailService(BaseEmailService):
             msg = MIMEMultipart()
             msg["From"] = self.from_email
             msg["To"] = to_email
-            msg["Subject"] = "Your Tactive Savings Report"
+            msg["Subject"] = "Your Tactix Savings Report"
 
             body = (
                 f"Hi {name},\n\n"
-                "Thank you for using the Tactive Savings Calculator!\n\n"
+                "Thank you for using the Tactix Savings Calculator!\n\n"
                 "Please find your personalised savings report attached. "
                 "It details the estimated losses your project could face "
-                "and how Tactive can help recover them.\n\n"
+                "and how Tactix can help recover them.\n\n"
                 "If you'd like a detailed demo, reply to this email or "
-                "visit https://tactive.in\n\n"
+                "visit https://tactix.in\n\n"
                 "Best regards,\n"
-                "Team Tactive"
+                "Team Tactix"
             )
             msg.attach(MIMEText(body, "plain"))
 
@@ -103,7 +103,7 @@ class RealEmailService(BaseEmailService):
             attachment.add_header(
                 "Content-Disposition",
                 "attachment",
-                filename="Tactive_Savings_Report.pdf",
+                filename="Tactix_Savings_Report.pdf",
             )
             msg.attach(attachment)
 

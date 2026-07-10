@@ -1,5 +1,5 @@
 /**
- * Tactive Savings Calculator — Chart.js Configurations
+ * Tactix Savings Calculator — Chart.js Configurations
  * Animated financial visualizations
  */
 
@@ -245,7 +245,7 @@ export function renderComparisonChart(canvasId, result) {
       labels,
       datasets: [
         {
-          label: 'Without Tactive (Loss)',
+          label: 'Without Tactix (Loss)',
           data: lossAmounts,
           backgroundColor: 'rgba(239, 68, 68, 0.6)',
           borderColor: '#EF4444',
@@ -253,7 +253,7 @@ export function renderComparisonChart(canvasId, result) {
           borderRadius: 6,
         },
         {
-          label: 'With Tactive (Remaining Loss)',
+          label: 'With Tactix (Remaining Loss)',
           data: afterAmounts,
           backgroundColor: 'rgba(16, 185, 129, 0.6)',
           borderColor: '#10B981',
@@ -380,8 +380,8 @@ export function renderEquipmentUtilizationChart(canvasId) {
   if (!ctx) return;
 
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const withoutTactive = [45, 52, 38, 61, 42, 55];
-  const withTactive = [78, 85, 82, 91, 88, 79];
+  const withoutTactix = [45, 52, 38, 61, 42, 55];
+  const withTactix = [78, 85, 82, 91, 88, 79];
 
   chartInstances[canvasId] = new Chart(ctx, {
     type: 'line',
@@ -389,8 +389,8 @@ export function renderEquipmentUtilizationChart(canvasId) {
       labels: days,
       datasets: [
         {
-          label: 'Without Tactive',
-          data: withoutTactive,
+          label: 'Without Tactix',
+          data: withoutTactix,
           borderColor: '#EF4444',
           backgroundColor: 'rgba(239, 68, 68, 0.1)',
           borderWidth: 2,
@@ -400,8 +400,8 @@ export function renderEquipmentUtilizationChart(canvasId) {
           pointHoverRadius: 6,
         },
         {
-          label: 'With Tactive',
-          data: withTactive,
+          label: 'With Tactix',
+          data: withTactix,
           borderColor: '#10B981',
           backgroundColor: 'rgba(16, 185, 129, 0.1)',
           borderWidth: 2,
@@ -445,7 +445,7 @@ export function renderLaborTrendChart(canvasId, numLaborers) {
 
   const weeks = ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'];
   const attendance = weeks.map(() => Math.floor(numLaborers * (0.75 + Math.random() * 0.2)));
-  const productivity = [62, 65, 71, 74, 78, 82]; // Improving with Tactive
+  const productivity = [62, 65, 71, 74, 78, 82]; // Improving with Tactix
 
   chartInstances[canvasId] = new Chart(ctx, {
     type: 'line',
@@ -520,12 +520,12 @@ export function renderSavingsTimelineChart(canvasId, summary) {
   const cumulativeSavings = [];
   const cumulativeCost = [];
   const monthlySavings = summary.monthlySavings;
-  const monthlyCost = summary.tactiveCost / summary.totalRecovery * monthlySavings;
+  const monthlyCost = summary.tactixCost / summary.totalRecovery * monthlySavings;
 
   for (let i = 1; i <= Math.min(summary.totalRecovery > 0 ? Math.max(summary.paybackMonths * 2, 12) : 12, 36); i++) {
     months.push(`Month ${i}`);
     cumulativeSavings.push(monthlySavings * i);
-    cumulativeCost.push(summary.tactiveCost);
+    cumulativeCost.push(summary.tactixCost);
   }
 
   chartInstances[canvasId] = new Chart(ctx, {
@@ -545,7 +545,7 @@ export function renderSavingsTimelineChart(canvasId, summary) {
           pointHoverRadius: 6,
         },
         {
-          label: 'Tactive Investment',
+          label: 'Tactix Investment',
           data: cumulativeCost,
           borderColor: '#F59E0B',
           borderDash: [8, 4],

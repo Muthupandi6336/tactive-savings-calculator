@@ -1,7 +1,7 @@
 """
-Tactive Savings Calculation Engine.
+Tactix Savings Calculation Engine.
 
-Uses industry-standard loss percentages and Tactive module recovery rates
+Uses industry-standard loss percentages and Tactix module recovery rates
 to estimate potential savings for construction projects.
 """
 
@@ -23,7 +23,7 @@ SCHEDULE_OVERRUN_PCT = 0.15      # 15% of budget lost to schedule overruns
 REWORK_DEFECTS_PCT = 0.07        # 7% of budget lost to rework & defects
 
 # ---------------------------------------------------------------------------
-# Tactive module recovery rates (fraction of respective loss recovered)
+# Tactix module recovery rates (fraction of respective loss recovered)
 # ---------------------------------------------------------------------------
 MATERIAL_TRACKING_RECOVERY = 0.70    # Material Tracking recovers 70%
 EQUIPMENT_ALERTS_RECOVERY = 0.80     # Equipment Alerts recovers 80%
@@ -32,10 +32,10 @@ SCHEDULE_OPTIMIZER_RECOVERY = 0.50   # Schedule Optimizer recovers 50%
 QUALITY_CONTROL_RECOVERY = 0.65      # Quality Control recovers 65%
 
 # ---------------------------------------------------------------------------
-# Tactive subscription cost estimate (annual)
+# Tactix subscription cost estimate (annual)
 # Used to compute payback period.
 # ---------------------------------------------------------------------------
-TACTIVE_ANNUAL_COST_RATIO = 0.015  # ~1.5% of project budget per year
+TACTIX_ANNUAL_COST_RATIO = 0.015  # ~1.5% of project budget per year
 
 
 def _round2(value: float) -> float:
@@ -88,7 +88,7 @@ def calculate_losses(project: ProjectInput) -> LossBreakdown:
 
 def calculate_recovery(losses: LossBreakdown) -> RecoveryReport:
     """
-    Calculate recoverable savings using Tactive modules.
+    Calculate recoverable savings using Tactix modules.
 
     Args:
         losses: The loss breakdown computed for the project.
@@ -129,7 +129,7 @@ def calculate_payback_months(
     project: ProjectInput, total_recovery: float
 ) -> float:
     """
-    Estimate payback period for Tactive subscription.
+    Estimate payback period for Tactix subscription.
 
     The annual subscription cost is approximated as a percentage of
     the project budget. Payback = (annual_cost / 12) months until
@@ -142,7 +142,7 @@ def calculate_payback_months(
     Returns:
         Payback period in months (capped at project duration).
     """
-    annual_cost = project.budget * TACTIVE_ANNUAL_COST_RATIO
+    annual_cost = project.budget * TACTIX_ANNUAL_COST_RATIO
     monthly_cost = annual_cost / 12
     monthly_recovery = (
         total_recovery / project.duration_months
@@ -160,7 +160,7 @@ def calculate_payback_months(
 
 def run_calculation(project: ProjectInput) -> CalculationResult:
     """
-    Run the full Tactive savings calculation pipeline.
+    Run the full Tactix savings calculation pipeline.
 
     Args:
         project: The project input parameters.

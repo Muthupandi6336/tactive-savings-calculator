@@ -15,7 +15,7 @@ from email_service import get_email_service
 from models import ProjectInput
 from pdf_generator import generate_pdf
 
-logger = logging.getLogger("tactive.routes.report")
+logger = logging.getLogger("tactix.routes.report")
 router = APIRouter(prefix="/api/report", tags=["Report"])
 
 
@@ -38,7 +38,7 @@ async def download_pdf(project: ProjectInput):
         io.BytesIO(pdf_bytes),
         media_type="application/pdf",
         headers={
-            "Content-Disposition": "attachment; filename=Tactive_Savings_Report.pdf"
+            "Content-Disposition": "attachment; filename=Tactix_Savings_Report.pdf"
         },
     )
 

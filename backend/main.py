@@ -1,5 +1,5 @@
 """
-Tactive Savings Calculator — FastAPI Application
+Tactix Savings Calculator — FastAPI Application
 
 Entry point for the backend server.
 Run with:  uvicorn main:app --reload
@@ -23,7 +23,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s  %(name)-25s  %(levelname)-7s  %(message)s",
 )
-logger = logging.getLogger("tactive")
+logger = logging.getLogger("tactix")
 
 
 # ---------------------------------------------------------------------------
@@ -32,11 +32,11 @@ logger = logging.getLogger("tactive")
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Initialise resources on startup and clean up on shutdown."""
-    logger.info("Starting Tactive backend …")
+    logger.info("Starting Tactix backend …")
     await init_db()
     logger.info("Database initialised.")
     yield
-    logger.info("Shutting down Tactive backend …")
+    logger.info("Shutting down Tactix backend …")
     await close_db()
     logger.info("Database connection closed.")
 
@@ -45,10 +45,10 @@ async def lifespan(app: FastAPI):
 # FastAPI application
 # ---------------------------------------------------------------------------
 app = FastAPI(
-    title="Tactive Savings Calculator API",
+    title="Tactix Savings Calculator API",
     description=(
-        "API for the Tactive construction savings calculator. "
-        "Estimates project losses, calculates Tactive recovery potential, "
+        "API for the Tactix construction savings calculator. "
+        "Estimates project losses, calculates Tactix recovery potential, "
         "generates PDF reports, and captures sales leads."
     ),
     version="1.0.0",
@@ -82,7 +82,7 @@ async def health_check():
     """Basic health-check endpoint."""
     return {
         "status": "healthy",
-        "service": "Tactive Savings Calculator API",
+        "service": "Tactix Savings Calculator API",
         "version": "1.0.0",
     }
 

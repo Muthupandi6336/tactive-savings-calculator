@@ -1,6 +1,6 @@
 /**
- * Tactive Savings Calculator — Calculation Engine
- * Industry-average loss formulas and Tactive recovery rates
+ * Tactix Savings Calculator — Calculation Engine
+ * Industry-average loss formulas and Tactix recovery rates
  */
 
 // ── Industry Loss Rates ──
@@ -12,7 +12,7 @@ const LOSS_RATES = {
   reworkDefects: 0.07,        // 7% of budget
 };
 
-// ── Tactive Recovery Rates ──
+// ── Tactix Recovery Rates ──
 const RECOVERY_RATES = {
   materialTracking: 0.70,     // Recovers 70% of material waste
   equipmentAlerts: 0.80,      // Recovers 80% of idle machinery cost
@@ -24,7 +24,7 @@ const RECOVERY_RATES = {
 // ── Constants ──
 const AVG_DAILY_WAGE = 800;   // ₹800 per laborer per day (Indian avg)
 const WORKING_DAYS_PER_MONTH = 26;
-const TACTIVE_MONTHLY_COST_PER_CRORE = 15000; // ₹15,000 per crore of budget per month
+const TACTIX_MONTHLY_COST_PER_CRORE = 15000; // ₹15,000 per crore of budget per month
 
 /**
  * Calculate all losses based on project inputs
@@ -47,7 +47,7 @@ export function calculateLosses(input) {
 
   const totalLoss = materialWaste + idleMachinery + laborInefficiency + scheduleOverrun + reworkDefects;
 
-  // ── Calculate Tactive Recovery ──
+  // ── Calculate Tactix Recovery ──
   const materialRecovery = materialWaste * RECOVERY_RATES.materialTracking;
   const machineryRecovery = idleMachinery * RECOVERY_RATES.equipmentAlerts;
   const laborRecovery = laborInefficiency * RECOVERY_RATES.laborDashboard;
@@ -57,11 +57,11 @@ export function calculateLosses(input) {
   const totalRecovery = materialRecovery + machineryRecovery + laborRecovery + scheduleRecovery + reworkRecovery;
 
   // ── ROI Calculation ──
-  const tactiveCost = (budget / 10000000) * TACTIVE_MONTHLY_COST_PER_CRORE * duration_months;
-  const netSavings = totalRecovery - tactiveCost;
-  const roiPercentage = tactiveCost > 0 ? ((netSavings / tactiveCost) * 100) : 0;
+  const tactixCost = (budget / 10000000) * TACTIX_MONTHLY_COST_PER_CRORE * duration_months;
+  const netSavings = totalRecovery - tactixCost;
+  const roiPercentage = tactixCost > 0 ? ((netSavings / tactixCost) * 100) : 0;
   const monthlySavings = totalRecovery / duration_months;
-  const paybackMonths = monthlySavings > 0 ? Math.ceil(tactiveCost / monthlySavings) : 0;
+  const paybackMonths = monthlySavings > 0 ? Math.ceil(tactixCost / monthlySavings) : 0;
 
   return {
     input: { budget, duration_months, num_laborers },
@@ -145,7 +145,7 @@ export function calculateLosses(input) {
     summary: {
       totalLoss,
       totalRecovery,
-      tactiveCost,
+      tactixCost,
       netSavings,
       roiPercentage,
       monthlySavings,

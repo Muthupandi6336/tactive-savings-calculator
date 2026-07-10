@@ -1,10 +1,10 @@
 """
-PDF report generator for Tactive Savings Calculator.
+PDF report generator for Tactix Savings Calculator.
 
 Uses fpdf2 to produce a professional, branded PDF report with:
   - Executive summary
   - Loss breakdown table
-  - Recovery plan by Tactive module
+  - Recovery plan by Tactix module
   - ROI summary
 All currency values are formatted in Indian notation (₹ Crores / Lakhs).
 """
@@ -31,8 +31,8 @@ _RED = (200, 40, 40)
 _GREY_BG = (245, 245, 245)
 
 
-class TactiveReport(FPDF):
-    """Custom FPDF subclass with Tactive branding."""
+class TactixReport(FPDF):
+    """Custom FPDF subclass with Tactix branding."""
 
     def header(self):
         """Draw the page header with a dark-blue banner."""
@@ -41,7 +41,7 @@ class TactiveReport(FPDF):
         self.set_font("Helvetica", "B", 18)
         self.set_text_color(*_WHITE)
         self.set_y(6)
-        self.cell(0, 10, "Tactive Savings Report", align="C", new_x="LMARGIN", new_y="NEXT")
+        self.cell(0, 10, "Tactix Savings Report", align="C", new_x="LMARGIN", new_y="NEXT")
         self.set_font("Helvetica", "", 9)
         self.cell(0, 6, f"Generated on {datetime.now().strftime('%d %B %Y, %I:%M %p')}", align="C", new_x="LMARGIN", new_y="NEXT")
         self.ln(10)
@@ -51,7 +51,7 @@ class TactiveReport(FPDF):
         self.set_y(-15)
         self.set_font("Helvetica", "I", 8)
         self.set_text_color(128, 128, 128)
-        self.cell(0, 10, f"Page {self.page_no()}/{{nb}}  |  Confidential - Tactive Technologies", align="C")
+        self.cell(0, 10, f"Page {self.page_no()}/{{nb}}  |  Confidential - Tactix Technologies", align="C")
 
     def section_title(self, title: str):
         """Render a styled section heading."""
@@ -85,7 +85,7 @@ def generate_pdf(result: CalculationResult) -> bytes:
     Returns:
         The PDF document as bytes.
     """
-    pdf = TactiveReport()
+    pdf = TactixReport()
     pdf.alias_nb_pages()
     pdf.set_auto_page_break(auto=True, margin=20)
     pdf.add_page()
@@ -108,7 +108,7 @@ def generate_pdf(result: CalculationResult) -> bytes:
         f"Based on a project budget of {format_inr(inp.budget)} over "
         f"{inp.duration_months} months with {inp.num_laborers} laborers, "
         f"{company_str} is estimated to face potential losses of "
-        f"{format_inr(losses.total_loss)}. With Tactive's smart construction "
+        f"{format_inr(losses.total_loss)}. With Tactix's smart construction "
         f"management platform, up to {format_inr(recovery.total_recovery)} can "
         f"be recovered - an ROI of {recovery.roi_percentage:.1f}%.",
     )
@@ -117,7 +117,7 @@ def generate_pdf(result: CalculationResult) -> bytes:
     # Highlight boxes
     box_y = pdf.get_y()
     _summary_box(pdf, "Total Estimated Loss", format_inr(losses.total_loss), _RED)
-    _summary_box(pdf, "Recoverable with Tactive", format_inr(recovery.total_recovery), _GREEN)
+    _summary_box(pdf, "Recoverable with Tactix", format_inr(recovery.total_recovery), _GREEN)
     _summary_box(pdf, "Payback Period", f"{result.payback_months:.1f} months", _MEDIUM_BLUE)
     pdf.set_y(box_y + 18 + 8)
 
@@ -144,9 +144,9 @@ def generate_pdf(result: CalculationResult) -> bytes:
     pdf.ln(6)
 
     # ------------------------------------------------------------------
-    # 3. Recovery Plan by Tactive Module
+    # 3. Recovery Plan by Tactix Module
     # ------------------------------------------------------------------
-    pdf.section_title("Recovery Plan - Tactive Modules")
+    pdf.section_title("Recovery Plan - Tactix Modules")
 
     recovery_rows = [
         ("Material Tracking (70% recovery)", format_inr(recovery.material_recovery)),
@@ -198,7 +198,7 @@ def generate_pdf(result: CalculationResult) -> bytes:
         0,
         5,
         "Disclaimer: These estimates are based on industry-average loss percentages "
-        "and Tactive's observed recovery rates across projects. Actual results may "
+        "and Tactix's observed recovery rates across projects. Actual results may "
         "vary depending on project specifics, adoption, and implementation scope.",
     )
 
@@ -206,7 +206,7 @@ def generate_pdf(result: CalculationResult) -> bytes:
     return pdf.output()
 
 
-def _summary_box(pdf: TactiveReport, label: str, value: str, color: tuple):
+def _summary_box(pdf: TactixReport, label: str, value: str, color: tuple):
     """Draw a small coloured summary box."""
     x = pdf.get_x()
     y = pdf.get_y()

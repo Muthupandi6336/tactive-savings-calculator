@@ -1,5 +1,5 @@
 /**
- * Tactive Savings Calculator — Interactive Sandbox
+ * Tactix Savings Calculator — Interactive Sandbox
  * Personalized dashboard simulation
  */
 
@@ -30,13 +30,13 @@ export function initSandbox(result) {
   // Set personalized subtitle
   const subtitle = document.getElementById('sandbox-subtitle');
   if (subtitle) {
-    subtitle.textContent = `This is how Tactive monitors your ${formatINR(result.input.budget)} project with ${result.input.num_laborers} workers`;
+    subtitle.textContent = `This is how Tactix monitors your ${formatINR(result.input.budget)} project with ${result.input.num_laborers} workers`;
   }
 
   // Set final CTA text
   const ctaText = document.getElementById('final-cta-text');
   if (ctaText) {
-    ctaText.textContent = `Tactive can save your project an estimated ${formatINR(result.summary.totalRecovery)}.`;
+    ctaText.textContent = `Tactix can save your project an estimated ${formatINR(result.summary.totalRecovery)}.`;
   }
 }
 

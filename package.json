@@ -1,8 +1,8 @@
 {
-  "name": "tactive-calculator",
+  "name": "tactix-calculator",
   "private": true,
   "version": "1.0.0",
-  "description": "Tactive Savings Calculator & Sandbox - Construction project financial analysis tool",
+  "description": "Tactix Savings Calculator & Sandbox - Construction project financial analysis tool",
   "type": "module",
   "scripts": {
     "dev": "vite",

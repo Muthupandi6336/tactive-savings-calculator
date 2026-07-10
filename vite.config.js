@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/tactive-savings-calculator/',
+  base: '/tactix-savings-calculator/',
   root: '.',
   server: {
     port: 3000,

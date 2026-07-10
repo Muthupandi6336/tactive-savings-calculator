@@ -1,5 +1,5 @@
 /**
- * Tactive Savings Calculator — Client-Side PDF Generator
+ * Tactix Savings Calculator — Client-Side PDF Generator
  * Generates identical PDF reports locally using jsPDF when backend is down
  */
 
@@ -52,7 +52,7 @@ export function generateClientPDF(result, lead) {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(18);
   doc.setTextColor(255, 255, 255);
-  doc.text('Tactive Savings Report', 105, 12, { align: 'center' });
+  doc.text('Tactix Savings Report', 105, 12, { align: 'center' });
   
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
@@ -101,7 +101,7 @@ export function generateClientPDF(result, lead) {
   doc.setTextColor(...BLACK);
   
   const companyStr = lead.company || 'your company';
-  const summaryText = `Based on a project budget of ${formatINRPDF(result.input.budget)} over ${result.input.duration_months} months with ${result.input.num_laborers} laborers, ${companyStr} is estimated to face potential losses of ${formatINRPDF(result.summary.totalLoss)}. With Tactive's smart construction management platform, up to ${formatINRPDF(result.summary.totalRecovery)} can be recovered - an ROI of ${result.summary.roiPercentage.toFixed(1)}%.`;
+  const summaryText = `Based on a project budget of ${formatINRPDF(result.input.budget)} over ${result.input.duration_months} months with ${result.input.num_laborers} laborers, ${companyStr} is estimated to face potential losses of ${formatINRPDF(result.summary.totalLoss)}. With Tactix's smart construction management platform, up to ${formatINRPDF(result.summary.totalRecovery)} can be recovered - an ROI of ${result.summary.roiPercentage.toFixed(1)}%.`;
   
   const splitText = doc.splitTextToSize(summaryText, 180);
   doc.text(splitText, 15, y);
@@ -127,7 +127,7 @@ export function generateClientPDF(result, lead) {
   doc.setTextColor(255, 255, 255);
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
-  doc.text('Recoverable with Tactive', 106, y + 5, { align: 'center' });
+  doc.text('Recoverable with Tactix', 106, y + 5, { align: 'center' });
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(11);
   doc.text(totalRecoveryStr, 106, y + 13, { align: 'center' });
@@ -173,7 +173,7 @@ export function generateClientPDF(result, lead) {
   y += 12;
 
   // --- 3. Recovery Plan ---
-  addSectionTitle('Recovery Plan - Tactive Modules');
+  addSectionTitle('Recovery Plan - Tactix Modules');
   
   const recoveryRows = [
     ['Material Tracking (70% recovery)', formatINRPDF(result.recovery.materialTracking.amount)],
@@ -209,7 +209,7 @@ export function generateClientPDF(result, lead) {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(18);
   doc.setTextColor(255, 255, 255);
-  doc.text('Tactive Savings Report', 105, 12, { align: 'center' });
+  doc.text('Tactix Savings Report', 105, 12, { align: 'center' });
   
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9);
@@ -236,7 +236,7 @@ export function generateClientPDF(result, lead) {
   doc.setFont('helvetica', 'italic');
   doc.setFontSize(8);
   doc.setTextColor(120, 120, 120);
-  const disclaimerText = 'Disclaimer: These estimates are based on industry-average loss percentages and Tactive\'s observed recovery rates across projects. Actual results may vary depending on project specifics, adoption, and implementation scope.';
+  const disclaimerText = 'Disclaimer: These estimates are based on industry-average loss percentages and Tactix\'s observed recovery rates across projects. Actual results may vary depending on project specifics, adoption, and implementation scope.';
   const splitDisclaimer = doc.splitTextToSize(disclaimerText, 180);
   doc.text(splitDisclaimer, 15, y);
 
@@ -248,7 +248,7 @@ export function generateClientPDF(result, lead) {
     doc.setFont('helvetica', 'italic');
     doc.setFontSize(8);
     doc.setTextColor(128, 128, 128);
-    doc.text(`Page ${i}/${totalPages}  |  Confidential - Tactive Technologies`, 105, pageHeight - 10, { align: 'center' });
+    doc.text(`Page ${i}/${totalPages}  |  Confidential - Tactix Technologies`, 105, pageHeight - 10, { align: 'center' });
   }
 
   // Convert to Blob and return

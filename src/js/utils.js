@@ -1,5 +1,5 @@
 /**
- * Tactive Savings Calculator — Utility Functions
+ * Tactix Savings Calculator — Utility Functions
  * Currency formatting, number animations, validation
  */
 

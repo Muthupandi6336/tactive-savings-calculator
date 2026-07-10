@@ -1,17 +1,17 @@
-# Tactive Savings Calculator & Sandbox
+# Tactix Savings Calculator & Sandbox
 
-A modern, interactive financial analysis and simulation dashboard designed for construction CEOs to estimate project financial leaks ("bleed") and visualize how Tactive's modules recover lost funds.
+A modern, interactive financial analysis and simulation dashboard designed for construction CEOs to estimate project financial leaks ("bleed") and visualize how Tactix's modules recover lost funds.
 
-Inspired by the official [Tactive Construction Software](https://tactive.in/) platform.
+Inspired by the official [Tactix Construction Software](https://tactix.in/) platform.
 
-Live Site: **[https://Muthupandi6336.github.io/tactive-savings-calculator/](https://Muthupandi6336.github.io/tactive-savings-calculator/)**
+Live Site: **[https://Muthupandi6336.github.io/tactix-savings-calculator/](https://Muthupandi6336.github.io/tactix-savings-calculator/)**
 
 ---
 
 ## 🚀 Key Features
 
 *   **Financial Leak Calculator**: Instantly estimates project losses across five key areas (Material Wastage, Idle Machinery, Labor Inefficiency, Schedule Overruns, and Rework & Defects) based on budget, duration, and workforce size.
-*   **Tactive Recovery Plan**: Dynamically displays how Tactive's tracking modules recover lost funds, showing net savings, ROI, and payback period.
+*   **Tactix Recovery Plan**: Dynamically displays how Tactix's tracking modules recover lost funds, showing net savings, ROI, and payback period.
 *   **Interactive Sandbox (Dashboard Simulation)**:
     *   *Material Tracking*: Live inventory stock levels, critical reorder limits, and warning triggers.
     *   *Equipment Monitor*: Real-time utilization rates, status grid (active/idle/maintenance), and optimization metrics.
@@ -72,6 +72,6 @@ npm run deploy
 
 ## ⚖️ Portfolio Disclaimer
 
-This project is an **independent portfolio case study** created for educational and interview demonstration purposes. It is not an official tool released by, affiliated with, or endorsed by Tactive Technologies. 
+This project is an **independent portfolio case study** created for educational and interview demonstration purposes. It is not an official tool released by, affiliated with, or endorsed by Tactix Technologies. 
 
-All Tactive product module concepts (Material Tracking, Equipment Alerts, etc.) and names mentioned in this project are properties of their respective trademark owners, showcased here purely to demonstrate technical fullstack capabilities.
+All Tactix product module concepts (Material Tracking, Equipment Alerts, etc.) and names mentioned in this project are properties of their respective trademark owners, showcased here purely to demonstrate technical fullstack capabilities.

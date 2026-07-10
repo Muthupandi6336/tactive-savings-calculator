@@ -1,5 +1,5 @@
 /**
- * Tactive Savings Calculator — API Client
+ * Tactix Savings Calculator — API Client
  * Communicates with FastAPI backend
  */
 

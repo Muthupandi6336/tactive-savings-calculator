@@ -1,5 +1,5 @@
 /**
- * Tactive Savings Calculator — Report Module
+ * Tactix Savings Calculator — Report Module
  * Dynamically renders the loss/recovery report UI
  */
 
